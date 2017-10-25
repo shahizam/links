@@ -10,12 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
+use \App\Link;
 
 Route::get('/', function () {
-	$links = \App\Link::all();
+	$links = Link::all();
     return view('welcome', [ 'links' => $links]);
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/submit', function () {
+	return view('submit');
+});

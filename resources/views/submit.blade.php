@@ -17,7 +17,7 @@
 					<label for="description">Description</label>
 					<input type="textarea" class="form-control" id="description" name="description" placeholder="Description">
 				</div>
-				<button> type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
 		</div>
 	</div>
