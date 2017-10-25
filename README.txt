@@ -25,4 +25,8 @@ Lets go.
 3. Scaffold the authentication system
 ~ php artisan make:auth
 
+4. Create table to store links information
+~ php artisan make:migration create_links_table --create=links
 
+5. Edit migration tables links to add column
+increments('id'),string('title'), string('url')->unique(),text('description'),timestamps()
