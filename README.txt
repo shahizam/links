@@ -30,3 +30,9 @@ Lets go.
 
 5. Edit migration tables links to add column
 increments('id'),string('title'), string('url')->unique(),text('description'),timestamps()
+
+6. Run migration (REMEMBER TO SETUP YOUR ENV CORRECTLY!!!!)
+~ php artisan migrate
+
+!! If you got access violation error: 1071, edit AppServiceProvider.php,
+	add Schema::defaultStringLength(191); to boot()
