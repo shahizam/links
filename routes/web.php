@@ -10,38 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use Illuminate\Http\Request;
-use \App\Link;
 
-Route::get('/', function () {
-	$links = Link::all();
-    return view('welcome', [ 'links' => $links]);
-});
+Route::get('/', 'RootController@index')->name('root');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/submit', function () {
-	return view('submit');
-});
+Route::get('/submit', 'LinksController@index')->name('getLink');
 
-Route::post('/submit', function(Request $request) {
-	$validator = Validator::make($request->all(), [
-		'title' => 'required|max:255',
-		'url' => 'required|max:255',
-		'description' => 'required|max:255',
-	]);
-	if ($validator->fails()) {
-		return redirect()
-			->back()
-			->withInput()
-			->withErrors($validator);
-	}
-	$link = new Link;
-	$link->title = $request->title;
-	$link->url = $request->url;
-	$link->description = $request->description;
-	$link->save();
-	return redirect('/');
-});
+Route::post('/submit', 'LinksController@post')->name('postLink');
