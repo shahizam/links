@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use \App\Link
+use Validator;
+use \App\Link;
 use Illuminate\Http\Request;
 
 class LinksController extends Controller
