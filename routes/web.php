@@ -33,7 +33,8 @@ Route::post('/submit', function(Request $request) {
 		'description' => 'required|max:255',
 	]);
 	if ($validator->fails()) {
-		return back()
+		return redirect()
+			->back()
 			->withInput()
 			->withErrors($validator);
 	}
